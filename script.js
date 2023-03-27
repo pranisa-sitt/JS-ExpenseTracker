@@ -46,6 +46,10 @@ const account = {
     for (let i = 0; i < this.expense.length; i++) {
       List += `Expense nr${1+this.expense.indexOf(this.expense[i])}: ${this.expense[i]} - Amount: ${this.expenseAmount[i]}\n`; 
     }; //loop result = indexOf expense: expense[] - expenseAmount[].
+    if (this.expenseAmount.length === 0 && this.expense.length === 0) {
+      alert(`Please fill expense first`);
+      menu();
+    } 
     alert(List); 
   },
 
@@ -98,17 +102,14 @@ function menu() {
   else if (inputChoice === 4) {
     account.getSummary();
     menu();
-  }
-  else if (!inputChoice) {
-    alert(`Thank you for your info, see you next time`);
-  }
-  else {
+  } else if (typeof inputChoice === "string") { // when user fill a string input
     alert(`Invalid input, please fill number 1-4 in the field.`);
-    menu();
   }
+  else if (isNaN(inputChoice)) {
+    alert(`Thank you, see you next time`);
+  }
+  
 }
-
-
 menu(); 
 
 
