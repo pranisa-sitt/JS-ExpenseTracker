@@ -44,45 +44,41 @@ const account = {
     // alert msg ---- TBC
     let List = "";
     for (let i = 0; i < this.expense.length; i++) {
-      List += `Expense nr${1+this.expense.indexOf(this.expense[i])}: ${this.expense[i]} - Amount: ${this.expenseAmount[i]}\n`; 
+      List += `Expense nr${1 + this.expense.indexOf(this.expense[i])}: ${this.expense[i]} - Amount: ${this.expenseAmount[i]}\n`;
     }; //loop result = indexOf expense: expense[] - expenseAmount[].
     if (this.expenseAmount.length === 0 && this.expense.length === 0) {
       alert(`Please fill expense first`);
       menu();
-    } 
-    alert(List); 
+    }
+    alert(List);
   },
 
- totalIncome: function () {
-  let sumIncome = 0; // sum of income
-  //sum income = increment income index
-  for (let income of this.income) {
-    sumIncome += income
-  }
-  return sumIncome;
- },
+  totalIncome: function () {
+    let sumIncome = 0; // sum of income
+    //sum income = increment income index
+    for (let income of this.income) {
+      sumIncome += income
+    }
+    return sumIncome;
+  },
 
   // cal sum of expenses
   getExpense: function () {
-    
     let sum = 0;
-    
-    for (let amount of this.expenseAmount) 
-    {
+    for (let amount of this.expenseAmount) {
       sum += amount
     }
-    return sum; 
+    return sum;
   },
 
   getSummary: function () {
-    //
+    
     alert(`${this.name}, your balance are:\n
     Total balance: ${this.totalIncome() - this.getExpense()}\n 
     Total income: ${this.totalIncome()}\n
     Total expense: ${this.getExpense()}`);
   },
 }
-
 
 // Menu part
 function menu() {
@@ -108,8 +104,8 @@ function menu() {
   else if (isNaN(inputChoice)) {
     alert(`Thank you, see you next time`);
   }
-  
+
 }
-menu(); 
+menu();
 
 
